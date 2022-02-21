@@ -2,14 +2,15 @@ package models;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 
 public class ColaDelCastigo<T> {
-	private Comparator comparador;
+	private Comparator<T> comparador;
 	private ArrayList<T> array;
 
-	public ColaDelCastigo(Comparator comparador) {
+	public ColaDelCastigo(Comparator<T> comparador) {
 		this.comparador = comparador;
 		this.array = new ArrayList<T>();
 	}
@@ -33,7 +34,7 @@ public class ColaDelCastigo<T> {
 		return esta;
 	}
 
-	public Iterator iterator() {
+	public Iterator<T> iterator() {
 		return null;
 	}
 
@@ -50,19 +51,19 @@ public class ColaDelCastigo<T> {
 		return false;
 	}
 
-	public boolean containsAll(Collection c) {
+	public boolean containsAll(Collection<T> c) {
 		return false;
 	}
 
-	public boolean addAll(Collection c) {
+	public boolean addAll(Collection<T> c) {
 		return false;
 	}
 
-	public boolean removeAll(Collection c) {
+	public boolean removeAll(Collection<T> c) {
 		return false;
 	}
 
-	public boolean retainAll(Collection c) {
+	public boolean retainAll(Collection<T> c) {
 		return false;
 	}
 
@@ -76,6 +77,7 @@ public class ColaDelCastigo<T> {
 				throw new LlevateTuNullDeAquiException("No puedes añadir un valor nulo");
 			} else {
 				array.add(e);
+				Collections.sort(array, comparador);
 			}
 		} else {
 			throw new ColaExceededSizeException("El tamaño de Cola de Castigo no puede ser más de 10");
