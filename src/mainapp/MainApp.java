@@ -1,15 +1,15 @@
 package mainapp;
 
+import excepciones.ColaExceededSizeException;
 import models.ColaDelCastigo;
-import models.ColaExceededSizeException;
 import models.Comparador;
 
 public class MainApp {
 
 	public static void main(String[] args) throws ColaExceededSizeException {
-		Comparador comparador=new Comparador();
+		//Comparador comparador=new Comparador();
 		
-		ColaDelCastigo<Integer> cola1 = new ColaDelCastigo<Integer>(comparador);
+		ColaDelCastigo<Integer> cola1 = new ColaDelCastigo<Integer>((Integer o1, Integer o2) -> o1-o2);
 		
 		//cola1.add(null);
 		cola1.add(1);

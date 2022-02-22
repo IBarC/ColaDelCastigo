@@ -1,4 +1,4 @@
-package models;
+package excepciones;
 
 public class LlevateTuNullDeAquiException extends NullPointerException{
 	

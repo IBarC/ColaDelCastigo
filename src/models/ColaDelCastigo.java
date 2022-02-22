@@ -6,7 +6,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 
+import excepciones.ColaExceededSizeException;
 import excepciones.ElementBlockedException;
+import excepciones.LlevateTuNullDeAquiException;
 
 public class ColaDelCastigo<T> {
 	private Comparator<T> comparador;
