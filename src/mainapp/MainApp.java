@@ -11,7 +11,7 @@ public class MainApp {
 		
 		ColaDelCastigo<Integer> cola1 = new ColaDelCastigo<Integer>(comparador);
 		
-		cola1.add(null);
+		//cola1.add(null);
 		cola1.add(1);
 		cola1.add(12);
 		cola1.add(3);
