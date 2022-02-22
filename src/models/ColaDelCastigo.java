@@ -114,4 +114,9 @@ public class ColaDelCastigo<T> {
 		return null;
 	}
 
+	@Override
+	public String toString() {
+		return "ColaDelCastigo [Numeros =" + array + "]";
+	}
+
 }
