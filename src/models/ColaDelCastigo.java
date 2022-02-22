@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 
+import excepciones.ElementBlockedException;
+
 public class ColaDelCastigo<T> {
 	private Comparator<T> comparador;
 	private ArrayList<T> array;
@@ -24,10 +26,10 @@ public class ColaDelCastigo<T> {
 	}
 
 	public boolean contains(Object o) {
-		boolean esta=false;
-		for(T t : array) {
-			if(t.equals(o)) {
-				esta=true;
+		boolean esta = false;
+		for (T t : array) {
+			if (t.equals(o)) {
+				esta = true;
 				break;
 			}
 		}
@@ -67,13 +69,18 @@ public class ColaDelCastigo<T> {
 		return false;
 	}
 
-	public void clear() {
-		array.clear();
+	public void clear() throws ElementBlockedException {
+		if (array.size() >= 10) {
+			throw new ElementBlockedException("La cola está llena por lo que no la puedes vaciar");
+		} else {
+			array.clear();
+		}
+
 	}
 
 	public boolean add(T e) throws ColaExceededSizeException {
 		if (array.size() < 10) {
-			if(e==null) {
+			if (e == null) {
 				throw new LlevateTuNullDeAquiException("No puedes añadir un valor nulo");
 			} else {
 				array.add(e);
